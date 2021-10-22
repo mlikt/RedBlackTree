@@ -22,7 +22,7 @@ void UserInterfaceAdd(Tree &tree, bool tumbler){
 			}
 			std::cout << "Пожалуйста вводите число." << std::endl;
 			std::cout << "Если хотите завершить программу нажмите Ctrl + D " << std::endl;
-			std::cout << "Хотите хотите перейти к удалению элементов? (Yes/No) : " ;
+			std::cout << "Хотите перейти к удалению элементов? (Yes/No) : " ;
 			std::getline(std::cin, cmd);
 			ClearTerm();
 			if (cmd == "Yes" || cmd == "yes" || cmd == "Y" || cmd == "y")
@@ -40,7 +40,7 @@ void UserInterfaceAdd(Tree &tree, bool tumbler){
 		} else {
 			tree.PrintGraph(tumbler);
 			tree.PrintInfo();
-			std::cout << "Элемент " << in << " уже существует" << std::endl;
+			std::cout << "Узел " << in << " уже существует" << std::endl;
 		}
 
 	}
@@ -52,9 +52,8 @@ void UserInterfaceDelete(Tree &tree, bool tumbler){
 	char ch;
 	std::string cmd;
 
-		// std::cout << "Удаление элементов дерева" << std::endl;
 		while (true){
-		std::cout << "Удаление элементов дерева" << std::endl;
+		std::cout << "Удаление узлов дерева" << std::endl;
 		tree.PrintGraph(tumbler);
 		tree.PrintInfo();
 
@@ -68,7 +67,7 @@ void UserInterfaceDelete(Tree &tree, bool tumbler){
 			}
 			std::cout << "Пожалуйста вводите число." << std::endl;
 			std::cout << "Если хотите завершить программу нажмите Ctrl + D " << std::endl;
-			std::cout << "Хотите завершить удаление элементов? (Yes/No) : " ;
+			std::cout << "Хотите завершить удаление узлов? (Yes/No) : " ;
 			std::getline(std::cin, cmd);
 			if (cmd == "Yes" || cmd == "yes" || cmd == "Y" || cmd == "y")
 				break;
@@ -80,7 +79,7 @@ void UserInterfaceDelete(Tree &tree, bool tumbler){
 		if (tree.FoundNode(in) != tree.Nil())
 			tree.DeleteNode(in);
 		else
-			std::cout << "Элемент " << in << " отсутствует в дереве." << std::endl;
+			std::cout << "Узел " << in << " отсутствует в дереве." << std::endl;
 		if (tree.Root() == tree.Nil()) {
 			std::cout << "Дерево пустое" << std::endl;
 			break;
