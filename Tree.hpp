@@ -20,7 +20,7 @@ class Tree {
 		Node *NewNode(int value);
 		void PrintSubtree(Node* root, const std::string& prefix, bool tumbler);
 		
-		//Родственики Relatives
+		//Родственики
 		Node *Parent(Node *&node);
 		Node *Grandfather(Node *&node);
 		Node *Uncle(Node *&node);
