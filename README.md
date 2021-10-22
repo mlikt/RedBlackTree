@@ -22,7 +22,7 @@
 #
 <img src="https://github.com/mlikt/RedBlackTree/blob/master/Image/1.png"></img>
 #
-Подобную процедуру совершите для выхода их режима удаления.
+Подобную процедуру совершите для выхода из режима удаления.
 #
 <img src="https://github.com/mlikt/RedBlackTree/blob/master/Image/2.png"></img>
 #
