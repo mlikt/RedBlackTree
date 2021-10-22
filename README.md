@@ -26,3 +26,5 @@
 #
 <img src="https://github.com/mlikt/RedBlackTree/blob/master/Image/2.png"></img>
 #
+И можно так: https://www.youtube.com/watch?v=zyb56opIrHU
+[![Watch the video](https://github.com/mlikt/RedBlackTree/blob/master/Image/RedBlack.png)](https://www.youtube.com/watch?v=zyb56opIrHU)
