@@ -1,7 +1,30 @@
 #include "Tree.hpp"
 
+int SPEED = 5;
+bool tumbler = OFF;
+
+
+/*Расскоментруй если отсутсвует программа clear */
+// void ClearTerm(){
+// 	pid_t pid;
+// 	pid = fork();
+// 	if (!pid){
+// 		std::cout << "\033[2J" << std::flush;
+// 		std::cout << "\033c" << std::flush;
+// 		exit(0);
+// 	}
+// 	wait(0);
+// }
+
+/*  */
 void ClearTerm(){
-	std::cout << "\033c" << std::flush;
+	pid_t pid;
+	pid = fork();
+	if (!pid){
+		execv("/usr/bin/clear", NULL);
+		exit(1);
+	}
+	wait(0);
 }
 
 void UserInterfaceAdd(Tree &tree, bool tumbler){
@@ -90,12 +113,26 @@ void UserInterfaceDelete(Tree &tree, bool tumbler){
 
 int main (void ){
 	Tree tree;
-	bool tumbler = OFF;
+	char ch = 1;
 	std::string cmd;
 	std::cout << "Включить отображение листьев(Yes/No)? (По умолчаню: отключено)\n> " << std::flush;
 	std::getline(std::cin, cmd);
 	if (cmd == "Yes" || cmd == "yes" || cmd == "Y" || cmd == "y")
 		tumbler = ON;
+	ClearTerm();
+
+	std::cout << "Задать скорость анимации \n> " << std::flush;
+    if ( !(std::cin >> std::noskipws >> SPEED >> ch && std::cin.good())) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			if (std::cin.eof()){
+				ClearTerm();
+				return (0);
+			}
+	}
+	if (ch == 1)
+		SPEED = 5;
+	
 	ClearTerm();
 	UserInterfaceAdd(tree, tumbler);
 	UserInterfaceDelete(tree, tumbler);

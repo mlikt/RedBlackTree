@@ -2,7 +2,10 @@
 
 void Tree::FixDelete(Node *node) {
 
-    while (node != this->root && node->colour == Black) {
+    while (node != root && node->colour == Black) {
+        ClearTerm();
+        this->PrintGraph(tumbler);
+        this->PrintInfo();
         if (IamLeftOrRight(node) == LEFT) {
             Node *w = node->Parent->Right;
             if (w->colour == Red) {
@@ -52,9 +55,12 @@ void Tree::FixDelete(Node *node) {
                 node = root;
             }
         }
+    usleep(SPEED * 100000);
     }
+
     node->colour = Black;
     this->root = FoundRoot(node);
+
 }
 
 void Tree::DeleteNode(T key) {
@@ -89,5 +95,11 @@ void Tree::DeleteNode(T key) {
 
     if (near->colour == Black)
         FixDelete(child);
+    
+    ClearTerm();
+    this->PrintGraph(tumbler);
+    this->PrintInfo();
+    usleep(SPEED * 100000);
+
     delete near;
 }

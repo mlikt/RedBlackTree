@@ -3,6 +3,8 @@
 #include "Node.h"
 #include <iostream>
 #include <string>
+#include <thread>
+#include <unistd.h>
 
 #define LEFT		1
 #define RIGHT		2
@@ -12,6 +14,9 @@
 
 #define ON	true
 #define OFF	false
+
+extern int SPEED;
+extern bool tumbler;
 
 class Tree {
 	private:
@@ -65,5 +70,6 @@ class Tree {
 
 };
 
+void ClearTerm();
 
 #endif

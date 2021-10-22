@@ -15,7 +15,7 @@ Node *Tree::Parent(Node *&node){
 		return (node->Parent);
 	else if (node->Parent == NIL)
 		return (NIL);
-	return (NULL);
+	return (NIL);
 }
 
 Node *Tree::Grandfather(Node *&node){

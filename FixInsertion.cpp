@@ -6,9 +6,13 @@ void Tree::FixInsertion(Node *node){
 		node->colour = Black;
 		return ;
 	}
-
 	while (Parent(node)->colour == Red)
-	{
+	{		
+		ClearTerm();
+		this->root = FoundRoot(node);
+		this->PrintGraph(tumbler);
+		this->PrintInfo();
+
 		if (IamLeftOrRight(Parent(node)) == LEFT){
 			if (Uncle(node)->colour == Red){
 				Parent(node)->colour = Black;
@@ -40,11 +44,16 @@ void Tree::FixInsertion(Node *node){
 				RotateLeft(Grandfather(node));
 			}
 		}
+
+		usleep(SPEED * 100000);
 	}
+	ClearTerm();
 
 	this->root = FoundRoot(node);
 	this->root->colour = Black;
-	
+	this->PrintGraph(tumbler);
+	this->PrintInfo();
+	ClearTerm();
 }
 
 Node *Tree::FoundRoot(Node *node){
