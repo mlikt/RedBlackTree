@@ -45,8 +45,7 @@ void Tree::FixInsertion(Node *node){
 				RotateLeft(Grandfather(node));
 			}
 		}
-
-		usleep(SPEED * 100000);
+		std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
 	}
 	ClearTerm();
 	std::cout << "Построение дерева" << std::endl;

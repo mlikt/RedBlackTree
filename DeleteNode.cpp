@@ -56,7 +56,7 @@ void Tree::FixDelete(Node *node) {
                 node = root;
             }
         }
-    usleep(SPEED * 100000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
     }
 
     node->colour = Black;
@@ -101,7 +101,6 @@ void Tree::DeleteNode(T key) {
     std::cout << "Удаление узлов дерева" << std::endl;
     this->PrintGraph(tumbler);
     this->PrintInfo();
-    usleep(SPEED * 100000);
-
+    std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
     delete near;
 }

@@ -5,6 +5,7 @@
 #include <string>
 #include <thread>
 #include <unistd.h>
+#include <thread>
 
 #define LEFT		1
 #define RIGHT		2
