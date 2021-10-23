@@ -7,7 +7,17 @@ void Tree::InsertNode(T key){
 
 	if (tmp == NIL) {
 		root = node;
+		ClearTerm();
+		std::cout << "Построение дерева" << std::endl;
+		this->PrintGraph(tumbler);
+		this->PrintInfo();
+		std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
 		root->colour = Black;
+		ClearTerm();
+		std::cout << "Построение дерева" << std::endl;
+		this->PrintGraph(tumbler);
+		this->PrintInfo();
+		std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
 		return ;
 	}
 
@@ -35,5 +45,11 @@ void Tree::InsertNode(T key){
 			break;
 		}
 	}
+
+	ClearTerm();
+	std::cout << "Построение дерева" << std::endl;
+	this->PrintGraph(tumbler);
+	this->PrintInfo();
+	std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
 	FixInsertion(node);
 }

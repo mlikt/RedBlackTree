@@ -58,6 +58,7 @@ void UserInterfaceAdd(Tree &tree, bool tumbler){
 		if (tree.FoundNode(in) == tree.Nil()){
 			tree.InsertNode(in);
 			std::cout << "Построение дерева" << std::endl;
+			ClearTerm();
 			tree.PrintGraph(tumbler);
 			tree.PrintInfo();
 		} else {

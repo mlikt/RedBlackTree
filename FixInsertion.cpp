@@ -50,10 +50,11 @@ void Tree::FixInsertion(Node *node){
 	ClearTerm();
 	std::cout << "Построение дерева" << std::endl;
 	this->root = FoundRoot(node);
-	this->root->colour = Black;
 	this->PrintGraph(tumbler);
 	this->PrintInfo();
-	ClearTerm();
+	this->root->colour = Black;
+	std::this_thread::sleep_for(std::chrono::milliseconds(SPEED));
+	// ClearTerm();
 }
 
 Node *Tree::FoundRoot(Node *node){
