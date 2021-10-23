@@ -4,6 +4,7 @@ void Tree::FixDelete(Node *node) {
 
     while (node != root && node->colour == Black) {
         ClearTerm();
+        std::cout << "Удаление узлов дерева" << std::endl;
         this->PrintGraph(tumbler);
         this->PrintInfo();
         if (IamLeftOrRight(node) == LEFT) {
@@ -97,6 +98,7 @@ void Tree::DeleteNode(T key) {
         FixDelete(child);
     
     ClearTerm();
+    std::cout << "Удаление узлов дерева" << std::endl;
     this->PrintGraph(tumbler);
     this->PrintInfo();
     usleep(SPEED * 100000);

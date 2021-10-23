@@ -9,6 +9,7 @@ void Tree::FixInsertion(Node *node){
 	while (Parent(node)->colour == Red)
 	{		
 		ClearTerm();
+		std::cout << "Построение дерева" << std::endl;
 		this->root = FoundRoot(node);
 		this->PrintGraph(tumbler);
 		this->PrintInfo();
@@ -48,7 +49,7 @@ void Tree::FixInsertion(Node *node){
 		usleep(SPEED * 100000);
 	}
 	ClearTerm();
-
+	std::cout << "Построение дерева" << std::endl;
 	this->root = FoundRoot(node);
 	this->root->colour = Black;
 	this->PrintGraph(tumbler);

@@ -5,27 +5,27 @@ bool tumbler = OFF;
 
 
 /*Расскоментруй если отсутсвует программа clear */
-// void ClearTerm(){
-// 	pid_t pid;
-// 	pid = fork();
-// 	if (!pid){
-// 		std::cout << "\033[2J" << std::flush;
-// 		std::cout << "\033c" << std::flush;
-// 		exit(0);
-// 	}
-// 	wait(0);
-// }
-
-/*  */
 void ClearTerm(){
 	pid_t pid;
 	pid = fork();
 	if (!pid){
-		execv("/usr/bin/clear", NULL);
-		exit(1);
+		std::cout << "\033[2J" << std::flush;
+		std::cout << "\033c" << std::flush;
+		exit(0);
 	}
 	wait(0);
 }
+
+// /*  */
+// void ClearTerm(){
+// 	pid_t pid;
+// 	pid = fork();
+// 	if (!pid){
+// 		execv("/usr/bin/clear", NULL);
+// 		exit(1);
+// 	}
+// 	wait(0);
+// }
 
 void UserInterfaceAdd(Tree &tree, bool tumbler){
 	int in;
@@ -55,9 +55,9 @@ void UserInterfaceAdd(Tree &tree, bool tumbler){
 			continue ;
 		}
 		ClearTerm();
-		std::cout << "Построение дерева" << std::endl;
 		if (tree.FoundNode(in) == tree.Nil()){
 			tree.InsertNode(in);
+			std::cout << "Построение дерева" << std::endl;
 			tree.PrintGraph(tumbler);
 			tree.PrintInfo();
 		} else {
@@ -76,6 +76,7 @@ void UserInterfaceDelete(Tree &tree, bool tumbler){
 	std::string cmd;
 
 		while (true){
+		ClearTerm();
 		std::cout << "Удаление узлов дерева" << std::endl;
 		tree.PrintGraph(tumbler);
 		tree.PrintInfo();
