@@ -57,14 +57,14 @@ void UserInterfaceAdd(Tree &tree, bool tumbler){
 		ClearTerm();
 		if (tree.FoundNode(in) == tree.Nil()){
 			tree.InsertNode(in);
-			std::cout << "Построение дерева" << std::endl;
 			ClearTerm();
+			std::cout << "Построение дерева" << std::endl;
 			tree.PrintGraph(tumbler);
 			tree.PrintInfo();
 		} else {
+			std::cout << "Узел " << in << " уже существует" << std::endl;
 			tree.PrintGraph(tumbler);
 			tree.PrintInfo();
-			std::cout << "Узел " << in << " уже существует" << std::endl;
 		}
 
 	}
@@ -74,14 +74,16 @@ void UserInterfaceAdd(Tree &tree, bool tumbler){
 void UserInterfaceDelete(Tree &tree, bool tumbler){
 	int in;
 	char ch;
+	bool check = true;
 	std::string cmd;
 
 		while (true){
+		if (check){
 		ClearTerm();
 		std::cout << "Удаление узлов дерева" << std::endl;
 		tree.PrintGraph(tumbler);
 		tree.PrintInfo();
-
+		}
 		std::cout << "Введите число: -> ";
 		if ( !(std::cin >> std::noskipws >> in >> ch && std::cin.good())) {
 			std::cin.clear();
@@ -101,10 +103,16 @@ void UserInterfaceDelete(Tree &tree, bool tumbler){
 		}
 		ClearTerm();
 
-		if (tree.FoundNode(in) != tree.Nil())
+		if (tree.FoundNode(in) != tree.Nil()){
 			tree.DeleteNode(in);
-		else
+			check = true;
+		}
+		else {
 			std::cout << "Узел " << in << " отсутствует в дереве." << std::endl;
+			tree.PrintGraph(tumbler);
+			tree.PrintInfo();
+			check = false;
+		}
 		if (tree.Root() == tree.Nil()) {
 			std::cout << "Дерево пустое" << std::endl;
 			break;
